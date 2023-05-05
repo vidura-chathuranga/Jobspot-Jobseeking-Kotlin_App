@@ -34,13 +34,13 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView9"
+        app:layout_constraintEnd_toStartOf="@+id/user_RegisterText"
         app:layout_constraintHorizontal_bias="0.561"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/company_register" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/user_RegisterText"
         android:layout_width="94dp"
         android:layout_height="36dp"
         android:layout_marginEnd="16dp"
@@ -50,7 +50,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/already_have_account"
-        app:layout_constraintTop_toBottomOf="@+id/imageView14" />
+        app:layout_constraintTop_toBottomOf="@+id/user_Register" />
 
     <ImageView
         android:id="@+id/imageView11"
@@ -77,13 +77,13 @@
         app:srcCompat="@drawable/under_wave" />
 
     <ImageView
-        android:id="@+id/imageView14"
+        android:id="@+id/user_Register"
         android:layout_width="102dp"
         android:layout_height="99dp"
         android:layout_marginTop="83dp"
         android:layout_marginBottom="12dp"
         android:contentDescription="@string/register_1"
-        app:layout_constraintBottom_toTopOf="@+id/textView9"
+        app:layout_constraintBottom_toTopOf="@+id/user_RegisterText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.415"
         app:layout_constraintStart_toEndOf="@+id/company_register"

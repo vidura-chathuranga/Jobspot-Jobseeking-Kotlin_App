@@ -8,8 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="mainColor">#130160</color>
+    <color name="maincolor">#130160</color>
     <color name="logo_Background">#130160</color>
     <color name="splash_screen_color">#fca34d</color>
     <color name="hint_textcolor">#626C96</color>
+    <color name="buttonbgcolor">#d6cdfe</color>
 
 </resources>

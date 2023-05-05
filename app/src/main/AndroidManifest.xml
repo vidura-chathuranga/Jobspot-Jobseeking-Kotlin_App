@@ -13,8 +13,23 @@
         android:theme="@style/Theme.Jobspot"
         tools:targetApi="31">
         <activity
+            android:name=".LoginUser"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".UserRegister"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".companyRegister"
-            android:exported="false" android:theme="@style/companyRegister">
+            android:exported="false"
+            android:theme="@style/companyRegister">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
