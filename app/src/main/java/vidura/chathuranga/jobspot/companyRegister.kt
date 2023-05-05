@@ -40,18 +40,24 @@ class companyRegister : AppCompatActivity() {
         companyEmail: EditText,
         password: EditText
     ) {
+        //set Error count as Zero
+        var errorCount : Int = 0
+
         //getting register values
         val companyNameText = companyName.text.toString()
         val companyEmailText = companyEmail.text.toString()
         val passwordText = password.text.toString()
 
         if (companyNameText.isEmpty()) {
+            errorCount++
             companyName.error = "Plaese Enter Comapany name"
         }
         if (companyEmailText.isEmpty()) {
+            errorCount++
             companyEmail.error = "Plaese Enter Comapany email"
         }
         if (passwordText.isEmpty()) {
+            errorCount++
             password.error = "Plaese Enter Comapany password"
         }
 
@@ -68,33 +74,39 @@ class companyRegister : AppCompatActivity() {
             val matcher = pattern.matcher(companyEmailText)
 
             if (!matcher.matches()) {
+                errorCount++
                 companyEmail.error = "Enter valid email"
             }
         }
 
         if (passwordText.length < 8) {
+            errorCount++
             password.error = "Your password should have at least 8 characters"
         }
 
 //        Generate unique ID
         val companyId = dbRef.push().key!!
 
-//        create company object
-        val company = CompanyModel(companyId, companyNameText, companyEmailText, passwordText)
+//        if error doesnt exist in the user input then we add data into out database
+        if(errorCount == 0){
+            //        create company object
+            val company = CompanyModel(companyId, companyNameText, companyEmailText, passwordText)
 
-        dbRef.child(companyId).setValue(company).addOnCompleteListener {
+            dbRef.child(companyId).setValue(company).addOnCompleteListener {
 
-            Toast.makeText(this, "You are Registered Successfully!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "You are Registered Successfully!", Toast.LENGTH_LONG).show()
 
-            print("Success")
+                print("Success")
 
-            companyName.text.clear()
-            companyEmail.text.clear()
-            password.text.clear()
+                companyName.text.clear()
+                companyEmail.text.clear()
+                password.text.clear()
 
-        }.addOnFailureListener { err ->
-            print("Error")
-            Toast.makeText(this, "Something went wrong!", Toast.LENGTH_LONG).show()
+            }.addOnFailureListener { err ->
+                print("Error")
+                Toast.makeText(this, "Something went wrong!", Toast.LENGTH_LONG).show()
+            }
         }
+
     }
 }
