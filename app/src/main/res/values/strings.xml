@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Jobspot</string>
+    <string name="appName">Jobspot</string>
+    <string name="find_your">Find Your</string>
+    <string name="here">Here!</string>
+    <string name="dream_job"><u>Dream Job</u></string>
+    <string name="splash_screen_description">Find Your Dream Job or Ideal Candidate Here!</string>
+    <string name="forward_arrow">forward arrow</string>
+    <string name="login_now">Login Now</string>
+    <string name="already_registered">I have registered already </string>
+    <string name="select_login_company">Company</string>
+    <string name="register_1">Employee Register</string>
+    <string name="select_worker">Worker</string>
+    <string name="select_company">Company</string>
+    <string name="select_register">Select Register</string>
+    <string name="create_account">Create an Company Account</string>
+    <string name="email_login">lotus@gmail.com</string>
+    <string name="companyname">lotus lanka</string>
+    <string name="remember_me">Remember me</string>
+    <string name="password">Password</string>
+    <string name="passwordstar">************</string>
+    <string name="emailtxt">Email</string>
+    <string name="companytxt">Company Name</string>
+    <string name="sign_up">Sign up</string>
+    <string name="already_account">Already have an account</string>
+
+</resources>
