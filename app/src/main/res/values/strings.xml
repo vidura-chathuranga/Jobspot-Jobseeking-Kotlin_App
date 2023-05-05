@@ -23,5 +23,9 @@
     <string name="companytxt">Company Name</string>
     <string name="sign_up">Sign up</string>
     <string name="already_account">Already have an account</string>
+    <string name="welcomemsg">Welcome Back</string>
+    <string name="login_btn">LOGIN</string>
+    <string name="sign_google">SIGN IN WITH GOOGLE</string>
+    <string name="creat_account">You don\'t have an account yet?</string>
 
 </resources>

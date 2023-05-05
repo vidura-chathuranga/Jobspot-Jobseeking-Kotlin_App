@@ -1,4 +1,6 @@
 <resources>
     <dimen name="button_width">300dp</dimen>
     <dimen name="button_height">58dp</dimen>
+    <dimen name="input_box_width">370dp</dimen>
+    <dimen name="input_box_height">53dp</dimen>
 </resources>

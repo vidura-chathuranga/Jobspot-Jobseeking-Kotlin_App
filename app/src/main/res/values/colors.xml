@@ -11,5 +11,7 @@
     <color name="logo_Background">#130160</color>
     <color name="splash_screen_color">#fca34d</color>
     <color name="hint_textcolor">#626C96</color>
+    <color name="buttonbgcolor">#d6cdfe</color>
+    <color name="bgcolor">#f8f9f9</color>
 
 </resources>

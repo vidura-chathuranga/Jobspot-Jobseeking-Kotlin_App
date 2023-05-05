@@ -1,12 +1,15 @@
 package vidura.chathuranga.jobspot
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import vidura.chathuranga.jobspot.databinding.ActivityCompanyRegisterBinding
@@ -16,6 +19,7 @@ class companyRegister : AppCompatActivity() {
 
     private lateinit var binding: ActivityCompanyRegisterBinding
     private lateinit var dbRef: DatabaseReference
+    private lateinit var fireBaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,12 +29,18 @@ class companyRegister : AppCompatActivity() {
         val companyEmail: EditText = binding.companyemail
         val password: EditText = binding.companypassword
         val submitButton: Button = binding.signupbtn
-
+        val alreadyHaveAccount : TextView = findViewById(R.id.already_have_account)
 
         dbRef = FirebaseDatabase.getInstance().getReference("Companiees")
+        fireBaseAuth = FirebaseAuth.getInstance()
 
         submitButton.setOnClickListener {
             saveCompanyData(companyName, companyEmail, password)
+        }
+
+        alreadyHaveAccount.setOnClickListener{
+            var intent = Intent(this,CompanyLogin::class.java)
+            startActivity(intent)
         }
 
     }
@@ -41,7 +51,7 @@ class companyRegister : AppCompatActivity() {
         password: EditText
     ) {
         //set Error count as Zero
-        var errorCount : Int = 0
+        var errorCount: Int = 0
 
         //getting register values
         val companyNameText = companyName.text.toString()
@@ -88,24 +98,36 @@ class companyRegister : AppCompatActivity() {
         val companyId = dbRef.push().key!!
 
 //        if error doesnt exist in the user input then we add data into out database
-        if(errorCount == 0){
+        if (errorCount == 0) {
             //        create company object
-            val company = CompanyModel(companyId, companyNameText, companyEmailText, passwordText)
+            fireBaseAuth.createUserWithEmailAndPassword(companyEmailText, passwordText)
+                .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        val company =
+                            CompanyModel(companyId, companyNameText, companyEmailText)
 
-            dbRef.child(companyId).setValue(company).addOnCompleteListener {
+                        dbRef.child(companyId).setValue(company).addOnCompleteListener {
 
-                Toast.makeText(this, "You are Registered Successfully!", Toast.LENGTH_LONG).show()
+                            Toast.makeText(
+                                this,
+                                "You are Registered Successfully!",
+                                Toast.LENGTH_LONG
+                            ).show()
 
-                print("Success")
+                            companyName.text.clear()
+                            companyEmail.text.clear()
+                            password.text.clear()
 
-                companyName.text.clear()
-                companyEmail.text.clear()
-                password.text.clear()
-
-            }.addOnFailureListener { err ->
-                print("Error")
-                Toast.makeText(this, "Something went wrong!", Toast.LENGTH_LONG).show()
-            }
+                            //moving to login screen
+                            var intent = Intent(this, CompanyLogin::class.java)
+                            startActivity(intent)
+                        }
+                    }else{
+                        Toast.makeText(this, "Something went wrong!", Toast.LENGTH_LONG).show()
+                    }
+                }.addOnFailureListener { err ->
+                    Toast.makeText(this, "Something went wrong!", Toast.LENGTH_LONG).show()
+                }
         }
 
     }
