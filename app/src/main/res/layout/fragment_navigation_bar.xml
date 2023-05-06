@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background_2"
+
+    tools:context=".navigation_bar">
+
+    <EditText
+        android:id="@+id/fullName_edit"
+        android:layout_width="@dimen/up_txt_width"
+        android:layout_height="@dimen/up_txt_height"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/change_passoword_button"
+        android:ems="10"
+        android:fontFamily="@font/dm_sans"
+        android:hint="Yashodini Soyza"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:textAlignment="textStart"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="@string/full_name"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView17" />
+
+    <EditText
+        android:id="@+id/phoneNumber_edit"
+        android:layout_width="@dimen/up_txt_width"
+        android:layout_height="@dimen/up_txt_height"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/change_passoword_button"
+        android:ems="10"
+        android:fontFamily="@font/dm_sans"
+        android:hint="0703968965"
+        android:inputType="number"
+        android:paddingLeft="10dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView33" />
+
+    <EditText
+        android:id="@+id/userEmail_edit"
+        android:layout_width="@dimen/up_txt_width"
+        android:layout_height="@dimen/up_txt_height"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/change_passoword_button"
+        android:ems="10"
+        android:hint="yashodini@gmail.com"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="10dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView32" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Email"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gender_edit" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Location"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.127"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber_edit" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Gender"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.126"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullName_edit" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Phone number"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.143"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userEmail_edit" />
+
+    <EditText
+        android:id="@+id/location_edit"
+        android:layout_width="@dimen/up_txt_width"
+        android:layout_height="@dimen/up_txt_height"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/change_passoword_button"
+        android:ems="10"
+        android:fontFamily="@font/dm_sans"
+        android:hint="Malabe. Sri Lanka"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView34" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="392dp"
+        android:layout_height="98dp"
+        android:layout_marginStart="1dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/rectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/gender_edit"
+        android:layout_width="@dimen/up_txt_width"
+        android:layout_height="@dimen/up_txt_height"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/change_passoword_button"
+        android:ems="10"
+        android:hint="Female"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView31" />
+
+    <Button
+        android:id="@+id/editButton"
+        android:layout_width="@dimen/up_editbtn_width"
+        android:layout_height="@dimen/up_editbtn_height"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="625dp"
+        android:layout_marginBottom="54dp"
+        android:background="@drawable/editprofile_btn"
+        android:text="@string/edit_profile"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/editButton3"
+        android:layout_width="@dimen/up_editbtn_width"
+        android:layout_height="@dimen/up_editbtn_height"
+        android:layout_marginStart="229dp"
+        android:layout_marginTop="625dp"
+        android:layout_marginBottom="54dp"
+        android:background="@drawable/editprofile_btn"
+        android:text="@string/delete_btn"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView20"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/avatar_profile"
+        app:layout_constraintBottom_toTopOf="@+id/textView29"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView17"
+        app:layout_constraintVertical_bias="0.678" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -111,7 +111,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button16"
+        android:id="@+id/login_Btn"
         android:layout_width="@dimen/button_width"
         android:layout_height="@dimen/button_height"
         android:layout_marginStart="46dp"
@@ -183,26 +183,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView5"
+    <EditText
+        android:id="@+id/user_EmailLogin"
         android:layout_width="@dimen/input_box_width"
         android:layout_height="@dimen/input_box_height"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="152dp"
-        android:layout_marginBottom="526dp"
+        android:layout_marginTop="163dp"
+        android:layout_marginBottom="515dp"
         android:background="@drawable/inputbox"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView7"
+    <EditText
+        android:id="@+id/user_Password"
         android:layout_width="@dimen/input_box_width"
         android:layout_height="@dimen/input_box_height"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="311dp"
-        android:layout_marginBottom="367dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="321dp"
+        android:layout_marginBottom="357dp"
         android:background="@drawable/inputbox"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

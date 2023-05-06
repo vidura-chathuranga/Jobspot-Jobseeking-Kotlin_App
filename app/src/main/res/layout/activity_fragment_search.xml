@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment_search">
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView13"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="261dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:srcCompat="@drawable/blob_scene_haikei" />-->
+
+<!--    <SearchView-->
+<!--        android:layout_width="@dimen/search_title_width"-->
+<!--        android:layout_height="@dimen/search_title_height"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:layout_marginBottom="68dp"-->
+<!--        android:background="@drawable/search_bar_background"-->
+<!--        android:iconifiedByDefault="false"-->
+<!--        android:queryHint="Colombo, SriLanka"-->
+<!--        android:searchIcon="@drawable/ic_baseline_location_on_24"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/imageView7"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.583"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/searchView"-->
+<!--        app:layout_constraintVertical_bias="0.0" />-->
+
+<!--    <SearchView-->
+<!--        android:id="@+id/searchView"-->
+<!--        android:layout_width="@dimen/search_title_width"-->
+<!--        android:layout_height="@dimen/search_title_height"-->
+<!--        android:layout_marginTop="100dp"-->
+<!--        android:background="@drawable/search_bar_background"-->
+<!--        android:iconifiedByDefault="false"-->
+<!--        android:queryHint="@string/occupation"-->
+<!--        android:searchIcon="@drawable/black_search_icon"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.583"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/imageButton8"-->
+<!--        android:layout_width="@dimen/back_arrow_width"-->
+<!--        android:layout_height="@dimen/back_arrow_height"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:background="@color/search_background_color1"-->
+<!--        android:contentDescription="searchResult"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/searchView"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.046"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.0"-->
+<!--        app:srcCompat="@drawable/white_back_arrow" />-->
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:layout_width="391dp"-->
+<!--        android:layout_height="443dp"-->
+<!--        android:layout_marginTop="28dp"-->
+<!--        android:layout_marginEnd="2dp"-->
+<!--        android:paddingLeft="10dp"-->
+<!--        android:paddingTop="10dp"-->
+<!--        android:paddingRight="10dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/imageView13" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

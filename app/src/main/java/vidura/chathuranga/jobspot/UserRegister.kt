@@ -1,15 +1,20 @@
 package vidura.chathuranga.jobspot
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 class UserRegister : AppCompatActivity() {
+
+
 
     private lateinit var fullName: EditText
     private lateinit var userEmail : EditText
@@ -18,22 +23,31 @@ class UserRegister : AppCompatActivity() {
     private lateinit var phoneNumber : EditText
     private lateinit var location : EditText
     private lateinit var btnSignUp : Button
-
     private lateinit var dbRef : DatabaseReference
+    private lateinit var fireBaseAuth: FirebaseAuth
+    private lateinit var alreadyAccount: TextView
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_register)
 
-        fullName = findViewById(R.id.fullName)
+        fullName = findViewById(R.id.fullName_edit)
         userEmail = findViewById(R.id.userEmail)
         password = findViewById(R.id.password)
         gender = findViewById(R.id.gender)
         phoneNumber = findViewById(R.id.phoneNumber)
         location = findViewById(R.id.location)
         btnSignUp = findViewById(R.id.btnSignUp)
+        alreadyAccount = findViewById(R.id.haveAccount)
+
+        alreadyAccount.setOnClickListener {
+            var intent = Intent(this,LoginUser::class.java)
+            startActivity(intent)
+        }
 
         dbRef = FirebaseDatabase.getInstance().getReference("Employees")
+        fireBaseAuth = FirebaseAuth.getInstance()
 
         btnSignUp.setOnClickListener {
             saveEmployeeData()
@@ -68,15 +82,34 @@ class UserRegister : AppCompatActivity() {
 
         val empId = dbRef.push().key!!
 
-        val employee = EmployeeModel(empId,fullNameStr,userEmailStr,passwordStr,genderStr,phoneNumberStr,locationStr)
 
-        dbRef.child(empId).setValue(employee)
-            .addOnCompleteListener{
-                Toast.makeText( this, "Data inserted successfully", Toast.LENGTH_LONG).show()
-                var intent = Intent(this,LoginUser::class.java)
-                startActivity(intent)
+        fireBaseAuth.createUserWithEmailAndPassword(userEmailStr, passwordStr)
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    val employee =
+                        EmployeeModel(empId,fullNameStr,userEmailStr,null,genderStr,phoneNumberStr,locationStr)
+
+                    dbRef.child(empId).setValue(employee).addOnCompleteListener {
+
+                        Toast.makeText(
+                            this,
+                            "You are Registered Successfully!",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                        fullName.text.clear()
+                        userEmail.text.clear()
+                        password.text.clear()
+
+
+                        var intent = Intent(this, LoginUser::class.java)
+                        startActivity(intent)
+                    }
+                }else{
+                    Toast.makeText(this, "Something went wrong!", Toast.LENGTH_LONG).show()
+                }
             }.addOnFailureListener { err ->
-                Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Something went wrong!", Toast.LENGTH_LONG).show()
             }
     }
-}
+    }

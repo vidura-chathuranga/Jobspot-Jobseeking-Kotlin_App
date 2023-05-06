@@ -14,4 +14,13 @@
     <color name="hint_textcolor">#626C96</color>
     <color name="buttonbgcolor">#d6cdfe</color>
 
+    <color name="app_background_2">#f3f4f6</color>
+    <color name="stats_color_blue">#afecfe</color>
+    <color name="stats_color_purple">#beaffe</color>
+    <color name="stats_color_yello">#ffd6ad</color>
+    <color name="search_background_color1">#001220</color>
+    <color name="app_background">#f9f9f9</color>
+    <color name="cancel_btn_background">#d6cdfe</color>
+
+
 </resources>

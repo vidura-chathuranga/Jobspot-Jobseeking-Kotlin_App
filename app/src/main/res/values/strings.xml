@@ -153,6 +153,29 @@
     <string name="full_name">Full Name</string>
     <string name="gender">Gender</string>
     <string name="delete">Delete</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="edit_profile">Edit</string>
+    <string name="stats_square">stats_square</string>
+    <string name="remoteJob">Remote Job</string>
+    <string name="FullTime">Full Time</string>
+    <string name="partTime">Part Time</string>
+    <string name="Specalization">Top Categories</string>
+    <string name="Design_specialization">Design</string>
+    <string name="Programmer">Programmer</string>
+    <string name="Hello">Hello</string>
+    <string name="Finance">Finance</string>
+    <string name="education">Education</string>
+    <string name="find_job">Find Your Job</string>
+    <string name="occupation">Software Engineering</string>
+    <string name="settings">Settings</string>
+    <string name="logout">Logout</string>
+    <string name="back_button">Back Button</string>
+    <string name="confirm_logout">Are you sure want to leave ?</string>
+    <string name="btn_yes">Yes</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="delete_btn">Delete</string>
+
 
 
 </resources>
