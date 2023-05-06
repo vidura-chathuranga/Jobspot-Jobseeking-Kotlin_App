@@ -1,5 +1,6 @@
 package vidura.chathuranga.jobspot
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.text.method.KeyListener
 import androidx.fragment.app.Fragment
@@ -11,6 +12,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import java.util.regex.Pattern
 
 
 class CompanyProfile : Fragment() {
@@ -88,7 +90,7 @@ class CompanyProfile : Fragment() {
         }
 
         delBtn.setOnClickListener {
-
+            deleteUser()
         }
 
         return view
@@ -142,6 +144,35 @@ class CompanyProfile : Fragment() {
         val cLocation = location!!.text.toString()
         val cDesc = description!!.text.toString()
 
+        var errorCount : Int  = 0
+
+        if (cName.isEmpty()){
+            errorCount++
+            companyName.error="Enter a name"
+        }
+        if(cEmail.isEmpty()){
+            errorCount++
+            companyEmail.error = "Enter a email"
+        }
+
+        if(cEmail.isNotEmpty()){
+            errorCount++
+            val pattern = Pattern.compile(
+                "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                        "\\@" +
+                        "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                        "(" +
+                        "\\." +
+                        "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                        ")+"
+            )
+            val matcher = pattern.matcher(cEmail)
+
+            if (!matcher.matches()) {
+                errorCount++
+                companyEmail.error = "Enter valid email"
+            }
+        }
         val editMap = mapOf(
             "companyId" to currentUser?.uid.toString(),
             "companyName" to cName,
@@ -176,6 +207,38 @@ class CompanyProfile : Fragment() {
             Toast.makeText(activity, "Something went Wrong!", Toast.LENGTH_LONG).show()
 
         }
+    }
+
+    private fun deleteUser(){
+        val builder = AlertDialog.Builder(activity)
+        builder.setTitle("Delete User")
+        builder.setMessage("Are you sure ?")
+        builder.setIcon(R.drawable.delete_bin)
+        builder.setCancelable(false)
+
+        builder.setPositiveButton("Yes"){_,_->
+            dbRef = FirebaseDatabase.getInstance().getReference("Companiees")
+            val currentUser = auth.currentUser
+
+            currentUser!!.delete().addOnCompleteListener {
+                if (it.isSuccessful){
+                    Toast.makeText(activity, "User is deleted", Toast.LENGTH_LONG).show()
+                    dbRef.child(currentUser!!.uid.toString()).removeValue()
+                    FirebaseAuth.getInstance().signOut()
+                }else{
+                    Toast.makeText(activity,"Something Went Wrong!",Toast.LENGTH_LONG).show()
+                }
+            }.addOnFailureListener{
+                Toast.makeText(activity,"Something Went Wrong!",Toast.LENGTH_LONG).show()
+            }
+        }
+
+        builder.setNegativeButton("Cancel"){_,_->
+
+        }
+
+        val alertDialog = builder.create()
+        alertDialog.show()
     }
 
 }
