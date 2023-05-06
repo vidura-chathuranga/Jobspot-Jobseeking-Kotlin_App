@@ -29,7 +29,7 @@ class companyRegister : AppCompatActivity() {
         val companyEmail: EditText = binding.companyemail
         val password: EditText = binding.companypassword
         val submitButton: Button = binding.signupbtn
-        val alreadyHaveAccount : TextView = findViewById(R.id.already_have_account)
+        val alreadyHaveAccount: TextView = findViewById(R.id.already_have_account)
 
         dbRef = FirebaseDatabase.getInstance().getReference("Companiees")
         fireBaseAuth = FirebaseAuth.getInstance()
@@ -38,8 +38,8 @@ class companyRegister : AppCompatActivity() {
             saveCompanyData(companyName, companyEmail, password)
         }
 
-        alreadyHaveAccount.setOnClickListener{
-            var intent = Intent(this,CompanyLogin::class.java)
+        alreadyHaveAccount.setOnClickListener {
+            var intent = Intent(this, CompanyLogin::class.java)
             startActivity(intent)
         }
 
@@ -94,8 +94,6 @@ class companyRegister : AppCompatActivity() {
             password.error = "Your password should have at least 8 characters"
         }
 
-//        Generate unique ID
-        val companyId = dbRef.push().key!!
 
 //        if error doesnt exist in the user input then we add data into out database
         if (errorCount == 0) {
@@ -104,25 +102,30 @@ class companyRegister : AppCompatActivity() {
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
                         val company =
-                            CompanyModel(companyId, companyNameText, companyEmailText)
+                            CompanyModel(
+                                it.result.user?.uid.toString(),
+                                companyNameText,
+                                companyEmailText
+                            )
 
-                        dbRef.child(companyId).setValue(company).addOnCompleteListener {
+                        dbRef.child(it.result.user?.uid.toString()).setValue(company)
+                            .addOnCompleteListener {
 
-                            Toast.makeText(
-                                this,
-                                "You are Registered Successfully!",
-                                Toast.LENGTH_LONG
-                            ).show()
+                                Toast.makeText(
+                                    this,
+                                    "You are Registered Successfully!",
+                                    Toast.LENGTH_LONG
+                                ).show()
 
-                            companyName.text.clear()
-                            companyEmail.text.clear()
-                            password.text.clear()
+                                companyName.text.clear()
+                                companyEmail.text.clear()
+                                password.text.clear()
 
-                            //moving to login screen
-                            var intent = Intent(this, CompanyLogin::class.java)
-                            startActivity(intent)
-                        }
-                    }else{
+                                //moving to login screen
+                                var intent = Intent(this, CompanyLogin::class.java)
+                                startActivity(intent)
+                            }
+                    } else {
                         Toast.makeText(this, "Something went wrong!", Toast.LENGTH_LONG).show()
                     }
                 }.addOnFailureListener { err ->

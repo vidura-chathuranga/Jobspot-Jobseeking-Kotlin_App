@@ -27,5 +27,23 @@
     <string name="login_btn">LOGIN</string>
     <string name="sign_google">SIGN IN WITH GOOGLE</string>
     <string name="creat_account">You don\'t have an account yet?</string>
-
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Stats">Statistic</string>
+    <string name="past_vacancy">Posted Vacancies</string>
+    <string name="total_vacancies">Total Vacancies</string>
+    <string name="job_pos">Job Position</string>
+    <string name="position_hint">Administrative Assistance</string>
+    <string name="type_work">Type Of Workplace</string>
+    <string name="onsite">On-Site</string>
+    <string name="j_location">Job Location</string>
+    <string name="job_location">Malabe</string>
+    <string name="company">Lotus Lanka</string>
+    <string name="emp_type">Employment Type</string>
+    <string name="emp_type_hint">Full Time</string>
+    <string name="company_desc">Description</string>
+    <string name="post_a_vacancy">Post a Vacancy</string>
+    <string name="company_name">Company Name</string>
+    <string name="business_description">Description</string>
+    <string name="edit_profile">Edit</string>
+    <string name="profilScrollView">profileScrollView</string>
 </resources>

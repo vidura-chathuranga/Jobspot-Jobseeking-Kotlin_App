@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.google.firebase.auth.FirebaseAuth
@@ -24,8 +25,12 @@ class CompanyLogin : AppCompatActivity() {
         val password : EditText = binding.passwordTxt
         val email :EditText = binding.emailTxt
         val loginBtn:Button = binding.loginBtn
+        val signUpBtn : TextView = findViewById(R.id.sign_up_btn)
 
-
+        signUpBtn.setOnClickListener{
+            var intent = Intent(this, companyRegister::class.java)
+            startActivity(intent)
+        }
         loginBtn.setOnClickListener{
             loginUser(email, password)
         }
@@ -72,7 +77,7 @@ class CompanyLogin : AppCompatActivity() {
         if(errorCount == 0){
             fireBaseAuth.signInWithEmailAndPassword(emailText,passwordText).addOnCompleteListener {
                 if(it.isSuccessful){
-                    val intent = Intent(this, companyRegister::class.java)
+                    val intent = Intent(this, companyHome::class.java)
                     startActivity(intent)
                 }
             }.addOnFailureListener{

@@ -3,4 +3,20 @@
     <dimen name="button_height">58dp</dimen>
     <dimen name="input_box_width">370dp</dimen>
     <dimen name="input_box_height">53dp</dimen>
+    <dimen name="nav_bar_height">72dp</dimen>
+    <dimen name="navbar_icon_height">40dp</dimen>
+    <dimen name="navbar_icon_width">40dp</dimen>
+    <dimen name="profile_pic_width">75dp</dimen>
+    <dimen name="profile_pic_height">75dp</dimen>
+    <dimen name="user_name_txt_size">24sp</dimen>
+    <dimen name="back_arrow_width">59dp</dimen>
+    <dimen name="back_arrow_height">53dp</dimen>
+    <dimen name="up_txt_width">310dp</dimen>
+    <dimen name="up_txt_height">50dp</dimen>
+    <dimen name="desc_height">99dp</dimen>
+    <dimen name="up_editbtn_width">133dp</dimen>
+    <dimen name="up_editbtn_height">52dp</dimen>
+    <dimen name="profile_photo_background_width" >392dp</dimen>
+    <dimen name="profile_photo_background_height" >98dp</dimen>
+    <string name="delete_btn">Delete</string>
 </resources>
