@@ -7,28 +7,17 @@
     android:background="@color/app_background_2"
     tools:context=".AddVacancy">
 
-    <ImageView
-        android:id="@+id/back_arrow_vacancy"
-        android:layout_width="39dp"
-        android:layout_height="34dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/back_arrow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.002"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ScrollView
         android:layout_width="391dp"
-        android:layout_height="751dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
+        android:layout_marginTop="2dp"
         android:layout_marginEnd="1dp"
         android:paddingLeft="40dp"
         android:paddingTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/back_arrow_vacancy">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -69,16 +58,13 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/type_of_workplace"
+            <Spinner
+                android:id="@+id/typeOfWorkplace"
                 android:layout_width="@dimen/up_txt_width"
                 android:layout_height="@dimen/up_txt_height"
                 android:background="@drawable/change_passoword_button"
-                android:ems="10"
-                android:hint="@string/onsite"
-                android:inputType="textPersonName"
-                android:paddingLeft="10dp"
-                android:textSize="14sp" />
+                android:dropDownWidth="match_parent"
+                android:entries="@array/typeOfWorkplace" />
 
             <TextView
                 android:id="@+id/job_location_text"
@@ -116,7 +102,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/comapny"
+                android:id="@+id/comapnyInput"
                 android:layout_width="@dimen/up_txt_width"
                 android:layout_height="@dimen/up_txt_height"
                 android:background="@drawable/change_passoword_button"
@@ -138,16 +124,13 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/employee_type"
+            <Spinner
+                android:id="@+id/employeeType"
                 android:layout_width="@dimen/up_txt_width"
                 android:layout_height="@dimen/up_txt_height"
                 android:background="@drawable/change_passoword_button"
-                android:ems="10"
-                android:hint="@string/emp_type_hint"
-                android:inputType="textPersonName"
-                android:paddingLeft="10dp"
-                android:textSize="14sp" />
+                android:dropDownWidth="match_parent"
+                android:entries="@array/empType" />
 
             <TextView
                 android:id="@+id/desc"
@@ -174,9 +157,9 @@
 
             <Button
                 android:id="@+id/post_vacancy_btn"
-                android:layout_width="@dimen/up_editbtn_width"
+                android:layout_width="219dp"
                 android:layout_height="@dimen/up_editbtn_height"
-                android:layout_marginLeft="90dp"
+                android:layout_marginLeft="48dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:background="@color/mainColor"

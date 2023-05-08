@@ -41,6 +41,8 @@ class CompanyProfile : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
+        activity?.setTitle("Jobspot - Company Profile")
         val view = inflater.inflate(R.layout.fragment_company_profile, container, false)
 
         companyName = view.findViewById(R.id.companyNameEdt)
