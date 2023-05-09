@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "311448651875",
+    "firebase_url": "https://madproject-92d9b-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "madproject-92d9b",
+    "storage_bucket": "madproject-92d9b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:311448651875:android:83e0a4591876d2cd2a9056",
+        "android_client_info": {
+          "package_name": "vidura.chathuranga.jobspot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "311448651875-n1ljk61i4i39hbd3oktr8l6d8gcm1798.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBD5oGf86QVlOPsiP3od0w6YszH0dwE49U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "311448651875-n1ljk61i4i39hbd3oktr8l6d8gcm1798.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
