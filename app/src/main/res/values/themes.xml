@@ -99,4 +99,5 @@
         <item name="android:statusBarColor">@color/mainColor</item>
         <!-- Customize your theme here. -->
     </style>
+
 </resources>

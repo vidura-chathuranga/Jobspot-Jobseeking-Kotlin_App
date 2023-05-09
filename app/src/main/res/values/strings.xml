@@ -46,6 +46,7 @@
     <string name="business_description">Description</string>
     <string name="edit_profile">Edit</string>
     <string name="profilScrollView">profileScrollView</string>
+    <string name="signout">signout</string>
     <string-array name="typeOfWorkplace">
         <item>On-place</item>
         <item>Online</item>
