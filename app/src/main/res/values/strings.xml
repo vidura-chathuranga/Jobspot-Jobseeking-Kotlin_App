@@ -46,4 +46,17 @@
     <string name="business_description">Description</string>
     <string name="edit_profile">Edit</string>
     <string name="profilScrollView">profileScrollView</string>
+    <string name="delete_vacancy">Delete Vacancy</string>
+    <string name="close_vacancy">Close Vacancy</string>
+    <string name="edit_vacancy">Edit Vacancy</string>
+    <string name="title">Title</string>
+    <string name="companyplaceholder">Company</string>
+    <string name="description">Description</string>
+    <string name="username">UserName</string>
+    <string name="hello">Hello</string>
+    <string name="active_vacancies">Active Vacancies</string>
+    <string name="closed_vacancies">Closed Vacancies</string>
+    <string name="_100">100+</string>
+    <string name="_5">5</string>
+    <string name="_21">21</string>
 </resources>

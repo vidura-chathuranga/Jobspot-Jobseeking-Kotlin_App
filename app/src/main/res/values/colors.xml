@@ -18,5 +18,8 @@
     <color name="stats_color_blue">#afecfe</color>
     <color name="app_background_2">#f3f4f6</color>
     <color name="deletebtn">#FF0000</color>
+    <color name="primaryColor">#130160</color>
+    <color name="red">#FF0000</color>
+    <color name="warning">#FFD600</color>
 
 </resources>
