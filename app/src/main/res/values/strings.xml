@@ -175,7 +175,7 @@
     <string name="btn_yes">Yes</string>
     <string name="btn_cancel">Cancel</string>
     <string name="delete_btn">Delete</string>
-
+    <string name="create_usera_account">Create User Account</string>
 
 
 </resources>

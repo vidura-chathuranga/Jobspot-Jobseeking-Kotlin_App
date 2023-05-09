@@ -176,7 +176,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/editButton3"
+        android:id="@+id/deleteButton"
         android:layout_width="@dimen/up_editbtn_width"
         android:layout_height="@dimen/up_editbtn_height"
         android:layout_marginStart="229dp"

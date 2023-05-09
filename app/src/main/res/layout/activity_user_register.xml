@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:text="@string/create_account"
+                android:text="@string/create_usera_account"
                 android:textColor="@color/black"
                 android:textSize="34sp"
                 android:textStyle="bold" />
@@ -96,8 +96,7 @@
                 android:background="@drawable/inputbox"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:paddingLeft="10dp"
-                android:text="@string/passwordstar" />
+                android:paddingLeft="10dp" />
 
             <TextView
                 android:id="@+id/textView64"

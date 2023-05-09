@@ -80,16 +80,16 @@ class UserRegister : AppCompatActivity() {
             location.error = "Please enter location"
         }
 
-        val empId = dbRef.push().key!!
+
 
 
         fireBaseAuth.createUserWithEmailAndPassword(userEmailStr, passwordStr)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
                     val employee =
-                        EmployeeModel(empId,fullNameStr,userEmailStr,null,genderStr,phoneNumberStr,locationStr)
+                        EmployeeModel(it.result.user?.uid.toString(),fullNameStr,userEmailStr,null,genderStr,phoneNumberStr,locationStr)
 
-                    dbRef.child(empId).setValue(employee).addOnCompleteListener {
+                    dbRef.child(it.result.user?.uid.toString(),).setValue(employee).addOnCompleteListener {
 
                         Toast.makeText(
                             this,
