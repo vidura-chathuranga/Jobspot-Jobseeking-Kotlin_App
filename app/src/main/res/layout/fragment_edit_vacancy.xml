@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/app_background_2"
-        tools:context=".AddVacancy">
+        tools:context=".EditVacancy">
 
         <ImageView
             android:id="@+id/back_arrow_vacancy"
@@ -152,16 +152,42 @@
                     android:textSize="14sp" />
 
                 <Button
-                    android:id="@+id/post_vacancy_btn"
-                    android:layout_width="@dimen/up_editbtn_width"
+                    android:id="@+id/edit_vacancy_btn"
+                    android:layout_width="280dp"
                     android:layout_height="@dimen/up_editbtn_height"
-                    android:layout_marginLeft="90dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginBottom="50dp"
+                    android:layout_marginBottom="5dp"
                     android:background="@color/mainColor"
                     android:fontFamily="@font/dm_sans"
-                    android:text="@string/post_a_vacancy"
+                    android:text="@string/edit_vacancy"
                     android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/close_vacancy_btn"
+                    android:layout_width="280dp"
+                    android:layout_height="52dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/warning"
+                    android:fontFamily="@font/dm_sans"
+                    android:text="@string/close_vacancy"
+                    android:textColor="@color/white" />
+
+
+                <Button
+                    android:id="@+id/delete_vacancy_btn"
+                    android:layout_width="280dp"
+                    android:layout_height="52dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="50dp"
+                    android:background="@color/red"
+                    android:fontFamily="@font/dm_sans"
+                    android:text="@string/delete_vacancy"
+                    android:textColor="@color/white" />
+
             </LinearLayout>
         </ScrollView>
 
