@@ -79,6 +79,7 @@ class CompanyLogin : AppCompatActivity() {
                 if(it.isSuccessful){
                     val intent = Intent(this, companyHome::class.java)
                     startActivity(intent)
+                    finish()
                 }
             }.addOnFailureListener{
                 Toast.makeText(this,"Your user credentials are wrong!",Toast.LENGTH_LONG).show()

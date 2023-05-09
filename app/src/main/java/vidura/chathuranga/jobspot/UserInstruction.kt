@@ -18,6 +18,7 @@ class UserInstruction : AppCompatActivity() {
         nextButton.setOnClickListener{
             var intent = Intent(this, selectRegister::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }
