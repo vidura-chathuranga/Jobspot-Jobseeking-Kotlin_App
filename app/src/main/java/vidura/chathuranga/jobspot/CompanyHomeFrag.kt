@@ -113,7 +113,7 @@ class CompanyHomeFrag : Fragment() {
             Toast.makeText(requireContext(), "Error: ${it.message}", Toast.LENGTH_SHORT).show()
         }
 
-        return binding.
+        return binding.root
     }
 
     private fun getCompanyUserName(){
