@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_height="wrap_content" android:layout_width="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FAFAFA"
@@ -17,19 +19,19 @@
             app:layout_constraintBottom_toTopOf="@+id/textView36"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.796"
-            app:layout_constraintStart_toEndOf="@+id/textView30"
+            app:layout_constraintStart_toEndOf="@+id/cUserName"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.362"
             app:srcCompat="@drawable/company_pro_pic" />
 
         <TextView
-            android:id="@+id/textView30"
+            android:id="@+id/cUserName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="36dp"
             android:layout_marginBottom="68dp"
             android:fontFamily="@font/dm_sans"
-            android:text="@string/username"
+            android:text="UserName"
             android:textSize="@dimen/user_name_txt_size"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/textView36"
@@ -43,7 +45,7 @@
             android:layout_marginStart="36dp"
             android:layout_marginTop="52dp"
             android:fontFamily="@font/dm_sans"
-            android:text="@string/hello"
+            android:text="Hello"
             android:textColor="@color/black"
             android:textSize="@dimen/user_name_txt_size"
             android:textStyle="bold"
@@ -56,13 +58,12 @@
             android:id="@+id/imageView37"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="20dp"
             android:src="@drawable/purple_stats_square"
             app:layout_constraintBottom_toTopOf="@+id/imageView43"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView42"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="@+id/imageView42" />
 
         <ImageView
             android:id="@+id/imageView43"
@@ -81,7 +82,7 @@
             android:layout_marginTop="224dp"
             android:src="@drawable/blue_rectangle"
             app:layout_constraintEnd_toStartOf="@+id/imageView37"
-            app:layout_constraintHorizontal_bias="0.679"
+            app:layout_constraintHorizontal_bias="0.646"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -118,10 +119,9 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView42" />
 
         <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="318dp"
+            android:layout_height="377dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.533"
             app:layout_constraintStart_toStartOf="parent"
@@ -129,15 +129,15 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="1000dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/vacancy_recycler_view"
+                    android:id="@+id/vacancyRecyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="1000dp"
-                    android:layout_margin="8dp"
-                    />
+                    android:layout_height="255dp"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="20dp" />
             </LinearLayout>
         </ScrollView>
 
@@ -179,29 +179,33 @@
             app:layout_constraintTop_toBottomOf="@+id/textView43" />
 
         <TextView
-            android:id="@+id/textView41"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/_100"
+            android:id="@+id/totalVacancyCount"
+            android:layout_width="77dp"
+            android:layout_height="39dp"
+            android:text="2"
+            android:textAlignment="center"
             android:textColor="@color/black"
+            android:textSize="34sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/textView38"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView42"
             app:layout_constraintEnd_toEndOf="@+id/imageView42"
-            app:layout_constraintHorizontal_bias="0.457"
-            app:layout_constraintStart_toStartOf="@+id/imageView42" />
+            app:layout_constraintHorizontal_bias="0.438"
+            app:layout_constraintStart_toStartOf="@+id/imageView42"
+            app:layout_constraintTop_toTopOf="@+id/imageView42"
+            app:layout_constraintVertical_bias="0.702" />
 
         <TextView
             android:id="@+id/textView42"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/_5"
+            android:layout_width="39dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="8dp"
+            android:text="5"
+            android:textAlignment="center"
             android:textColor="@color/black"
+            android:textSize="34sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/imageView37"
-            app:layout_constraintHorizontal_bias="0.479"
+            app:layout_constraintHorizontal_bias="0.521"
             app:layout_constraintStart_toStartOf="@+id/imageView37"
             app:layout_constraintTop_toTopOf="@+id/imageView37" />
 
@@ -209,14 +213,15 @@
             android:id="@+id/textView43"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/_21"
+            android:layout_marginTop="8dp"
+            android:text="21"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/black"
+            android:textSize="34sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/imageView43"
-            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintHorizontal_bias="0.521"
             app:layout_constraintStart_toStartOf="@+id/imageView43"
             app:layout_constraintTop_toTopOf="@+id/imageView43" />
 
@@ -224,7 +229,7 @@
             android:id="@+id/imageView44"
             android:layout_width="64dp"
             android:layout_height="80dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="12dp"
             android:scaleType="centerCrop"
             android:src="@drawable/all_vacancy"
             app:layout_constraintEnd_toEndOf="@+id/imageView42"
@@ -233,4 +238,5 @@
             app:layout_constraintTop_toTopOf="@+id/imageView42" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
 </layout>

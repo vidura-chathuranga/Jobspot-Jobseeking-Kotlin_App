@@ -204,31 +204,44 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/descTxt" />
 
-        <Button
-            android:id="@+id/edit_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="88dp"
-            android:layout_marginTop="19dp"
-            android:background="@drawable/editprofile_btn"
-            android:text="@string/edit_profile"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/descEdt" />
+        <LinearLayout
+            android:layout_width="312dp"
+            android:layout_height="166dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="@+id/descEdt"
+            app:layout_constraintStart_toStartOf="@+id/descEdt"
+            app:layout_constraintTop_toBottomOf="@+id/descEdt">
 
-        <Button
-            android:id="@+id/deleteBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="92dp"
-            android:background="@drawable/delete_btn"
-            android:text="@string/delete_btn"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/edit_btn"
-            app:layout_constraintTop_toBottomOf="@+id/descEdt" />
+            <Button
+                android:id="@+id/deleteBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/delete_btn"
+                android:backgroundTint="@color/deletebtn"
+                android:text="@string/delete_btn"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/edit_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/editprofile_btn"
+                android:text="@string/edit_profile"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/signoutbtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/signout_background"
+                android:backgroundTint="@color/black"
+                android:text="@string/signout" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

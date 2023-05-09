@@ -21,5 +21,6 @@
     <color name="primaryColor">#130160</color>
     <color name="red">#FF0000</color>
     <color name="warning">#FFD600</color>
+    <color name="signout">#060311</color>
 
 </resources>

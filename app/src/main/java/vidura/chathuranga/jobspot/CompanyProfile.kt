@@ -1,6 +1,7 @@
 package vidura.chathuranga.jobspot
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.text.method.KeyListener
 import androidx.fragment.app.Fragment
@@ -24,6 +25,7 @@ class CompanyProfile : Fragment() {
     private lateinit var description: EditText
     private lateinit var editBtn: Button
     private lateinit var delBtn: Button
+    private lateinit var signOut : Button
 
     private lateinit var auth: FirebaseAuth
     private lateinit var dbRef: DatabaseReference
@@ -41,6 +43,8 @@ class CompanyProfile : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
+        activity?.setTitle("Jobspot - Company Profile")
         val view = inflater.inflate(R.layout.fragment_company_profile, container, false)
 
         companyName = view.findViewById(R.id.companyNameEdt)
@@ -50,6 +54,7 @@ class CompanyProfile : Fragment() {
         description = view.findViewById(R.id.descEdt)
         editBtn = view.findViewById(R.id.edit_btn)
         delBtn = view.findViewById(R.id.deleteBtn)
+        signOut = view.findViewById(R.id.signoutbtn)
 
         //get default keyListener
         companyNameListener = companyName.keyListener
@@ -93,6 +98,9 @@ class CompanyProfile : Fragment() {
             deleteUser()
         }
 
+        signOut.setOnClickListener {
+            userSignOut()
+        }
         return view
     }
 
@@ -239,6 +247,16 @@ class CompanyProfile : Fragment() {
 
         val alertDialog = builder.create()
         alertDialog.show()
+    }
+
+    private fun userSignOut(){
+        if(auth.currentUser!=null){
+            auth.signOut()
+            var intent = Intent(activity, CompanyLogin::class.java)
+            startActivity(intent)
+            activity?.finish()
+
+        }
     }
 
 }

@@ -59,4 +59,14 @@
     <string name="_100">100+</string>
     <string name="_5">5</string>
     <string name="_21">21</string>
+    <string name="signout">signout</string>
+    <string-array name="typeOfWorkplace">
+        <item>On-place</item>
+        <item>Online</item>
+    </string-array>
+
+    <string-array name="empType">
+        <item>Full Time</item>
+        <item>Part Time</item>
+    </string-array>
 </resources>

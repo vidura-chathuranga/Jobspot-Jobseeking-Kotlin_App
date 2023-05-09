@@ -12,6 +12,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import vidura.chathuranga.jobspot.databinding.FragmentCompanyHomeBinding
+import android.widget.TextView
+import com.google.firebase.database.*
 
 
 class CompanyHomeFrag : Fragment() {
@@ -22,6 +24,9 @@ class CompanyHomeFrag : Fragment() {
     private lateinit var companyId: String
     private lateinit var vacancyAdapter: VacancyAdapter
     private lateinit var recyclerView: RecyclerView
+    private lateinit var userName : TextView
+    private lateinit var totalVacancies :TextView
+    private lateinit var activeVacancies : TextView
 
     //vacancies list
     private lateinit var vacanciesList: ArrayList<VacancyModel>
@@ -53,6 +58,15 @@ class CompanyHomeFrag : Fragment() {
 
         // Get the current user id
         val uid = fireBaseAuth.currentUser?.uid.toString()
+
+        // Get the user name text view
+        userName = binding.cUserName
+
+        // Get the total vacancies text view
+        totalVacancies = binding.totalVacancyCount
+
+        getCompanyUserName()
+        getTotalVacancies()
 
         // Get the company id from the database
         dbRef = FirebaseDatabase.getInstance().getReference("Companiees")
@@ -99,7 +113,51 @@ class CompanyHomeFrag : Fragment() {
             Toast.makeText(requireContext(), "Error: ${it.message}", Toast.LENGTH_SHORT).show()
         }
 
-        return binding.root
+        return binding.
+    }
+
+    private fun getCompanyUserName(){
+        dbRef = FirebaseDatabase.getInstance().getReference("Companiees")
+        fireBaseAuth = FirebaseAuth.getInstance()
+        val currentUserId = fireBaseAuth.currentUser?.uid.toString()
+
+        if(currentUserId.isNotEmpty()){
+            dbRef.child(currentUserId).addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+
+                    val company = snapshot.getValue(CompanyModel::class.java)!!
+
+                    userName.setText(company.companyName)
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(
+                        companyHome(),
+                        "Something went Wrong when fetching Data",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+
+            })
+        }
+
+
+    }
+
+    private fun getTotalVacancies(){
+        dbRef = FirebaseDatabase.getInstance().getReference("Companiees")
+
+        dbRef.addListenerForSingleValueEvent(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val childCount = snapshot.childrenCount
+                totalVacancies.text = childCount.toString()!!
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(activity,"Error While fetching total vacancies",Toast.LENGTH_LONG).show()
+            }
+        })
+
     }
 
 }
