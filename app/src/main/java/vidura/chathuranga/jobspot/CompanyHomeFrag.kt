@@ -24,9 +24,8 @@ class CompanyHomeFrag : Fragment() {
     private lateinit var companyId: String
     private lateinit var vacancyAdapter: VacancyAdapter
     private lateinit var recyclerView: RecyclerView
-    private lateinit var userName : TextView
-    private lateinit var totalVacancies :TextView
-    private lateinit var activeVacancies : TextView
+    private lateinit var userName: TextView
+    private lateinit var activeVacancies: TextView
 
     //vacancies list
     private lateinit var vacanciesList: ArrayList<VacancyModel>
@@ -62,11 +61,11 @@ class CompanyHomeFrag : Fragment() {
         // Get the user name text view
         userName = binding.cUserName
 
-        // Get the total vacancies text view
-        totalVacancies = binding.totalVacancyCount
-
+        //fetch username, totalvacancies, activeVacancies and closedvacancies count
         getCompanyUserName()
-        getTotalVacancies()
+        getTotalVacancies(uid)
+        getActiveVacancies(uid)
+        getClosedVacancies(uid)
 
         // Get the company id from the database
         dbRef = FirebaseDatabase.getInstance().getReference("Companiees")
@@ -86,7 +85,7 @@ class CompanyHomeFrag : Fragment() {
         dbRef.get().addOnSuccessListener {
             //get all vacancies
             vacanciesList.clear()
-            for (vacancy in it.children){
+            for (vacancy in it.children) {
                 val vacancyModel = vacancy.getValue(VacancyModel::class.java)
                 if (vacancyModel != null) {
                     vacanciesList.add(vacancyModel)
@@ -116,12 +115,12 @@ class CompanyHomeFrag : Fragment() {
         return binding.root
     }
 
-    private fun getCompanyUserName(){
+    private fun getCompanyUserName() {
         dbRef = FirebaseDatabase.getInstance().getReference("Companiees")
         fireBaseAuth = FirebaseAuth.getInstance()
         val currentUserId = fireBaseAuth.currentUser?.uid.toString()
 
-        if(currentUserId.isNotEmpty()){
+        if (currentUserId.isNotEmpty()) {
             dbRef.child(currentUserId).addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
 
@@ -144,20 +143,76 @@ class CompanyHomeFrag : Fragment() {
 
     }
 
-    private fun getTotalVacancies(){
-        dbRef = FirebaseDatabase.getInstance().getReference("Companiees")
+    private fun getTotalVacancies(uid: String) {
+        dbRef = FirebaseDatabase.getInstance().getReference("Vacancies")
 
-        dbRef.addListenerForSingleValueEvent(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val childCount = snapshot.childrenCount
-                totalVacancies.text = childCount.toString()!!
-            }
+        dbRef.orderByChild("companyId").equalTo(uid)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val childCount = snapshot.childrenCount
+                    binding.totalVacancyCount.text = childCount.toString()!!
+                }
 
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(activity,"Error While fetching total vacancies",Toast.LENGTH_LONG).show()
-            }
-        })
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(
+                        activity,
+                        "Error While fetching total vacancies",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+
+            })
 
     }
 
+    private fun getActiveVacancies(uid: String) {
+        dbRef = FirebaseDatabase.getInstance().getReference("Vacancies")
+
+        dbRef.orderByChild("companyId").equalTo(uid)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val filteredSnapShot = snapshot.children.filter {
+                        it.child("closed").getValue(Boolean::class.java) == false
+                    }
+
+                    val documentCount = filteredSnapShot.size.toString()
+                    binding.textView42.text = documentCount
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(
+                        activity,
+                        "Error While fetching total vacancies",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+
+            })
+
+    }
+
+    private fun getClosedVacancies(uid : String) {
+        dbRef = FirebaseDatabase.getInstance().getReference("Vacancies")
+
+        dbRef.orderByChild("companyId").equalTo(uid)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val filteredSnapShot = snapshot.children.filter {
+                        it.child("closed").getValue(Boolean::class.java) == true
+                    }
+
+                    val documentCount = filteredSnapShot.size.toString()
+                    binding.textView43.text = documentCount
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(
+                        activity,
+                        "Error While fetching total vacancies",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+
+            })
+    }
 }
