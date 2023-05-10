@@ -87,7 +87,7 @@ class CompanyHomeFrag : Fragment() {
             vacanciesList.clear()
             for (vacancy in it.children) {
                 val vacancyModel = vacancy.getValue(VacancyModel::class.java)
-                if (vacancyModel != null) {
+                if (vacancyModel != null && vacancyModel.companyId == companyId) {
                     vacanciesList.add(vacancyModel)
                 }
             }

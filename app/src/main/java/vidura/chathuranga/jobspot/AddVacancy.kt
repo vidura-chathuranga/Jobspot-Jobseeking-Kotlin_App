@@ -22,7 +22,6 @@ class AddVacancy : Fragment() {
     private lateinit var companyId: String
 
     // Declare variables for the various EditText and ImageView elements
-    // Text Fields
     private lateinit var jobPosition: EditText
     private lateinit var typeOfWorkPlace: EditText
     private lateinit var jobLocation: EditText
@@ -45,7 +44,7 @@ class AddVacancy : Fragment() {
         // Get the current user id
         val uid = fireBaseAuth.currentUser?.uid.toString()
 
-        // Get the company id from the database
+        // Get the company id from the database using the user id
         dbRef = FirebaseDatabase.getInstance().getReference("Companiees")
         // Get the company id from the database using the user id - add onSuccessListener and onFailureListener
         dbRef.child(uid).get().addOnSuccessListener {
