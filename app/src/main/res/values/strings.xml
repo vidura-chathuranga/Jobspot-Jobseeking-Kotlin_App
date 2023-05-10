@@ -34,7 +34,7 @@
     <string name="job_pos">Job Position</string>
     <string name="position_hint">Administrative Assistance</string>
     <string name="type_work">Type Of Workplace</string>
-    <string name="onsite">On-Site</string>
+    <string name="onsite">On Site</string>
     <string name="j_location">Job Location</string>
     <string name="job_location">Malabe</string>
     <string name="company">Lotus Lanka</string>
@@ -61,6 +61,7 @@
     <string name="_21">21</string>
     <string name="signout">signout</string>
     <string name="active">Active</string>
+    <string name="search">"Search By Position "</string>
     <string-array name="typeOfWorkplace">
         <item>On-place</item>
         <item>Online</item>

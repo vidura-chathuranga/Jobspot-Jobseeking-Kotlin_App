@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +15,8 @@ import com.google.firebase.database.FirebaseDatabase
 import vidura.chathuranga.jobspot.databinding.FragmentCompanyHomeBinding
 import android.widget.TextView
 import com.google.firebase.database.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class CompanyHomeFrag : Fragment() {
@@ -26,9 +29,11 @@ class CompanyHomeFrag : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var userName: TextView
     private lateinit var activeVacancies: TextView
+    private lateinit var searchView: SearchView
 
     //vacancies list
     private lateinit var vacanciesList: ArrayList<VacancyModel>
+    private lateinit var filteredVacanciesList: ArrayList<VacancyModel>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,8 +45,11 @@ class CompanyHomeFrag : Fragment() {
         // Initialize the vacancies list
         vacanciesList = ArrayList()
 
+        // Initialize the filtered vacancies list
+        filteredVacanciesList = ArrayList()
+
         // Initialize the vacancy adapter
-        vacancyAdapter = VacancyAdapter(vacanciesList)
+        vacancyAdapter = VacancyAdapter(filteredVacanciesList)
 
         // Initialize the recycler view
         recyclerView = binding.vacancyRecyclerView
@@ -91,6 +99,11 @@ class CompanyHomeFrag : Fragment() {
                     vacanciesList.add(vacancyModel)
                 }
             }
+
+            //set the filtered vacancies list
+            filteredVacanciesList.clear()
+            filteredVacanciesList.addAll(vacanciesList)
+
             //OnClick listener for the vacancy adapter
             vacancyAdapter.setOnItemClickListener(object : VacancyAdapter.OnItemClickListener {
                 override fun onItemClick(position: Int) {
@@ -105,13 +118,30 @@ class CompanyHomeFrag : Fragment() {
 
                 }
             })
+
             //notify the adapter
             vacancyAdapter.notifyDataSetChanged()
+
+            //get the search view
+            searchView = binding.searchView
+
+            //set the onQueryTextListener to the search view
+            // Set the query listener for the search view
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String): Boolean {
+                    return false
+                }
+
+                override fun onQueryTextChange(newText: String): Boolean {
+                    // Filter the vacancies list based on the search query
+                    filterVacancies(newText)
+                    return true
+                }
+            })
         }.addOnFailureListener {
             // Show error message
             Toast.makeText(requireContext(), "Error: ${it.message}", Toast.LENGTH_SHORT).show()
         }
-
         return binding.root
     }
 
@@ -214,5 +244,27 @@ class CompanyHomeFrag : Fragment() {
                 }
 
             })
+    }
+
+    private fun filterVacancies(query: String) {
+        // Clear the filtered list
+        filteredVacanciesList.clear()
+
+        // If the query is empty, add all vacancies to the filtered list
+        if (query.isEmpty()) {
+            filteredVacanciesList.addAll(vacanciesList)
+        } else {
+            // Filter the vacancies list based on the search query
+            for (vacancy in vacanciesList) {
+                if (vacancy.jobPosition?.lowercase(Locale.getDefault())
+                        ?.contains(query.lowercase(Locale.getDefault())) == true
+                ) {
+                    filteredVacanciesList.add(vacancy)
+                }
+            }
+        }
+
+        // Notify the adapter that the data set has changed
+        vacancyAdapter.notifyDataSetChanged()
     }
 }
