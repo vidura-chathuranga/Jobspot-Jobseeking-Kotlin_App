@@ -60,6 +60,7 @@
     <string name="_5">5</string>
     <string name="_21">21</string>
     <string name="signout">signout</string>
+    <string name="active">Active</string>
     <string-array name="typeOfWorkplace">
         <item>On-place</item>
         <item>Online</item>

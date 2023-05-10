@@ -11,16 +11,18 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import vidura.chathuranga.jobspot.databinding.FragmentAddVacancyBinding
 
-
+// This line creates a new class called AddVacancy that extends the Fragment class
 class AddVacancy : Fragment() {
 
-    //binding for the fragment
+    // Declare variables for view binding, database reference, Firebase Authentication and company id
+    // binding for the fragment
     private lateinit var binding: FragmentAddVacancyBinding
     private lateinit var dbRef: DatabaseReference
     private lateinit var fireBaseAuth: FirebaseAuth
     private lateinit var companyId: String
 
-    //Text Fields
+    // Declare variables for the various EditText and ImageView elements
+    // Text Fields
     private lateinit var jobPosition: EditText
     private lateinit var typeOfWorkPlace: EditText
     private lateinit var jobLocation: EditText
@@ -29,6 +31,7 @@ class AddVacancy : Fragment() {
     private lateinit var backBtn: ImageView
     private lateinit var submitBtn: Button
 
+    // Override the onCreateView method to inflate the layout for this fragment
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,6 +59,7 @@ class AddVacancy : Fragment() {
         // Initialize Firebase Realtime Database reference to the Vacancies table
         dbRef = FirebaseDatabase.getInstance().getReference("Vacancies")
 
+        // Return the root view
         return binding.root
     }
 
@@ -106,7 +110,8 @@ class AddVacancy : Fragment() {
                 jobLocationText,
                 employmentTypeText,
                 jobDescriptionText,
-                companyId
+                companyId,
+                false
             )
 
             // Save the vacancy object to the database

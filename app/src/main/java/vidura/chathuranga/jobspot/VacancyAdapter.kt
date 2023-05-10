@@ -31,6 +31,11 @@ class VacancyAdapter(
         holder.jobPosition.text = vacancy.jobPosition
         "Company PVT LTD, ${vacancy.jobLocation}".also { holder.jobCompany.text = it }
         holder.jobDescription.text = vacancy.jobDescription
+        if (vacancy.isClosed) {
+            holder.isClosed.text = "Closed"
+        } else {
+            holder.isClosed.text = "Active"
+        }
     }
 
     override fun getItemCount(): Int {
@@ -41,6 +46,7 @@ class VacancyAdapter(
         val jobPosition = itemView.findViewById(R.id.vacancy_title) as TextView
         val jobCompany = itemView.findViewById(R.id.vacancy_company) as TextView
         val jobDescription = itemView.findViewById(R.id.vacancy_description) as TextView
+        val isClosed = itemView.findViewById(R.id.vacancy_isClosed) as TextView
 
         init {
             itemView.setOnClickListener {
