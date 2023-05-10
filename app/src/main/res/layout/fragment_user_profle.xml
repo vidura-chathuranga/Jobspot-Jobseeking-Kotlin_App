@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/app_background_2"
 
-    tools:context=".navigation_bar">
+    tools:context=".user_profile">
 
     <EditText
         android:id="@+id/fullName_edit"

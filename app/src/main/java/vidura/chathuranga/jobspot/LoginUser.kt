@@ -36,7 +36,7 @@ class LoginUser : AppCompatActivity() {
             } else {
                 fireBaseAuth.signInWithEmailAndPassword(emailText, passwordText).addOnCompleteListener {
                     if (it.isSuccessful) {
-                        val intent = Intent(this, user_homePage::class.java)
+                        val intent = Intent(this, home_page_navigationbar::class.java)
                         startActivity(intent)
                     } else {
                         Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()

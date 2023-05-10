@@ -1,22 +1,20 @@
 package vidura.chathuranga.jobspot
 
-import android.annotation.SuppressLint
-import android.content.Context.MODE_PRIVATE
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.app.AlertDialog
 import android.os.Bundle
 import android.text.method.KeyListener
-import android.util.Log
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.google.firebase.database.core.Context
 import java.util.regex.Pattern
 
-class userEdit : AppCompatActivity() {
+class user_profile : Fragment() {
 
     private lateinit var fullNameEditText: EditText
     private lateinit var emailEditText: EditText
@@ -35,20 +33,22 @@ class userEdit : AppCompatActivity() {
     private lateinit var locationListener: KeyListener
     private lateinit var genderListener: KeyListener
 
-    @SuppressLint("MissingInflatedId")
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_navigation_bar)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_user_profle, container, false)
 
         //Initialize views
-        fullNameEditText = findViewById(R.id.fullName_edit)
-        emailEditText = findViewById(R.id.userEmail_edit)
+        fullNameEditText = view.findViewById(R.id.fullName_edit)
+        emailEditText = view.findViewById(R.id.userEmail_edit)
         //passwordEditText = findViewById(R.id.password)
-        genderEditText = findViewById(R.id.gender_edit)
-        phoneEditText = findViewById(R.id.phoneNumber_edit)
-        locationEditText = findViewById(R.id.location_edit)
-        editBtn = findViewById(R.id.editButton)
-        delButton = findViewById(R.id.deleteButton)
+        genderEditText = view.findViewById(R.id.gender_edit)
+        phoneEditText = view.findViewById(R.id.phoneNumber_edit)
+        locationEditText = view.findViewById(R.id.location_edit)
+        editBtn = view.findViewById(R.id.editButton)
+        delButton = view.findViewById(R.id.deleteButton)
 
         getCurrentUserDetails()
 
@@ -71,7 +71,7 @@ class userEdit : AppCompatActivity() {
         // Set a click listener on the save button
         editBtn.setOnClickListener {
             if (editBtn.text.toString().compareTo("Edit") == 0) {
-                Toast.makeText(this, "You can edit your profile Now", Toast.LENGTH_LONG).show()
+                Toast.makeText(activity, "You can edit your profile Now", Toast.LENGTH_LONG).show()
                 //set Text boxes editable
                 fullNameEditText.keyListener = userNameListener
                 emailEditText.keyListener = userEmailListener
@@ -86,14 +86,12 @@ class userEdit : AppCompatActivity() {
                 //call to edit user function
                 editUserDetails()
             }
-
-
         }
+
         delButton.setOnClickListener {
             deleteUser()
         }
-
-
+        return view
     }
 
     private fun getCurrentUserDetails() {
@@ -125,16 +123,15 @@ class userEdit : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-//                Toast.makeText(
-//                    ,
-//                    "Something went Wrong when fetching Data",
-//                    Toast.LENGTH_LONG
-//                ).show()
+                Toast.makeText(
+                    activity,
+                    "Something went Wrong when fetching Data",
+                    Toast.LENGTH_LONG
+                ).show()
             }
 
         })
     }
-
 
     private fun editUserDetails() {
         auth = FirebaseAuth.getInstance()
@@ -201,59 +198,50 @@ class userEdit : AppCompatActivity() {
                 locationEditText.keyListener = null
 
                 //when update successfully, toast message will be displayed
-                Toast.makeText(this, "Profile updated Successfully!", Toast.LENGTH_LONG)
+                Toast.makeText(activity, "Profile updated Successfully!", Toast.LENGTH_LONG)
                     .show()
 
                 //trans save button to text
                 editBtn.text = "Edit"
             } else {
                 //when update unSuccess, toast message will be displayed
-                Toast.makeText(this, "Profile was not updated!", Toast.LENGTH_LONG)
+                Toast.makeText(activity, "Profile was not updated!", Toast.LENGTH_LONG)
             }
         }.addOnFailureListener {
-            Toast.makeText(this, "Something went Wrong!", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, "Something went Wrong!", Toast.LENGTH_LONG).show()
 
         }
     }
-    private fun deleteUser(){
-        val builder = AlertDialog.Builder(this)
+
+    private fun deleteUser() {
+        val builder = AlertDialog.Builder(activity)
         builder.setTitle("Delete User")
         builder.setMessage("Are you sure ?")
         builder.setIcon(R.drawable.delete_bin)
         builder.setCancelable(false)
 
-        builder.setPositiveButton("Yes"){_,_->
+        builder.setPositiveButton("Yes") { _, _ ->
             dbRef = FirebaseDatabase.getInstance().getReference("Employees")
             val currentUser = auth.currentUser
 
             currentUser!!.delete().addOnCompleteListener {
-                if (it.isSuccessful){
-                    Toast.makeText(this, "User is deleted", Toast.LENGTH_LONG).show()
+                if (it.isSuccessful) {
+                    Toast.makeText(activity, "User is deleted", Toast.LENGTH_LONG).show()
                     dbRef.child(currentUser!!.uid.toString()).removeValue()
                     FirebaseAuth.getInstance().signOut()
-                }else{
-                    Toast.makeText(this,"Something Went Wrong!",Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(activity, "Something Went Wrong!", Toast.LENGTH_LONG).show()
                 }
-            }.addOnFailureListener{
-                Toast.makeText(this,"Something Went Wrong!",Toast.LENGTH_LONG).show()
+            }.addOnFailureListener {
+                Toast.makeText(activity, "Something Went Wrong!", Toast.LENGTH_LONG).show()
             }
         }
 
-        builder.setNegativeButton("Cancel"){_,_->
+        builder.setNegativeButton("Cancel") { _, _ ->
 
         }
 
         val alertDialog = builder.create()
         alertDialog.show()
     }
-
 }
-
-
-
-
-
-
-
-
-

@@ -4,36 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".userEdit">
+    tools:context=".home_page_navigationbar">
 
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView6"
-        android:name="vidura.chathuranga.jobspot.navigation_bar"
-        android:layout_width="match_parent"
-        android:layout_height="733dp"
-        android:layout_marginBottom="2dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/activity_user_home_page" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="match_parent"
         android:layout_height="72dp"
-        android:layout_marginTop="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView6"
+        app:layout_constraintTop_toBottomOf="@+id/mainFrag"
         app:srcCompat="@drawable/navigation_bar_background" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/home_img_btn"
         android:layout_width="@dimen/navbar_icon_width"
         android:layout_height="@dimen/navbar_icon_height"
         android:layout_marginStart="16dp"
@@ -45,20 +31,20 @@
         app:srcCompat="@drawable/active_home" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/search_img_btn"
         android:layout_width="@dimen/navbar_icon_width"
         android:layout_height="@dimen/navbar_icon_height"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView16"
+        app:layout_constraintEnd_toStartOf="@+id/user_profile_btn"
         app:layout_constraintHorizontal_bias="0.535"
-        app:layout_constraintStart_toEndOf="@+id/imageView8"
+        app:layout_constraintStart_toEndOf="@+id/home_img_btn"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/deactive_search" />
 
     <ImageView
-        android:id="@+id/imageView16"
+        android:id="@+id/user_profile_btn"
         android:layout_width="@dimen/navbar_icon_width"
         android:layout_height="@dimen/navbar_icon_height"
         android:layout_marginEnd="16dp"
@@ -68,5 +54,17 @@
         app:layout_constraintTop_toTopOf="@+id/imageView6"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/deactivate_user" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mainFrag"
+        android:name="vidura.chathuranga.jobspot.home_page"
+        android:layout_width="392dp"
+        android:layout_height="736dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_home_page" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

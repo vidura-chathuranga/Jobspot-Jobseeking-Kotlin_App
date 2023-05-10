@@ -41,8 +41,8 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".userEdit"
-            android:exported="false">
+            android:name=".home_page_navigationbar"
+            android:exported="false" android:theme="@style/userHome">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

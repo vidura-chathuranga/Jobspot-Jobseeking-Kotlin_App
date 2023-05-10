@@ -49,6 +49,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/inputbox"
                 android:ems="10"
+                android:hint="Vinnath Pathirana"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp" />
 
@@ -72,6 +73,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/inputbox"
                 android:ems="10"
+                android:hint="vinnath@gmail.com"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp" />
 
@@ -95,6 +97,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/inputbox"
                 android:ems="10"
+                android:hint="********"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp" />
 
@@ -118,6 +121,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/inputbox"
                 android:ems="10"
+                android:hint="Male/Female"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp" />
 
@@ -141,6 +145,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/inputbox"
                 android:ems="10"
+                android:hint="0711461016"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp" />
 
@@ -164,6 +169,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/inputbox"
                 android:ems="10"
+                android:hint="Colombo"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp" />
 

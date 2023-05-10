@@ -61,6 +61,8 @@ class UserRegister : AppCompatActivity() {
         val phoneNumberStr = phoneNumber.text.toString()
         val locationStr = location.text.toString()
 
+
+
         if(fullNameStr.isEmpty()){
             fullName.error = "Please enter name"
         }
@@ -79,9 +81,6 @@ class UserRegister : AppCompatActivity() {
         if(locationStr.isEmpty()){
             location.error = "Please enter location"
         }
-
-
-
 
         fireBaseAuth.createUserWithEmailAndPassword(userEmailStr, passwordStr)
             .addOnCompleteListener {
