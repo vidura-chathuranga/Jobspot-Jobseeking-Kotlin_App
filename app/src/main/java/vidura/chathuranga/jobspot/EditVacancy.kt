@@ -119,7 +119,8 @@ class EditVacancy (private val vacancy : VacancyModel) : Fragment() {
                 jobLocation,
                 employmentType,
                 jobDescription,
-                vacancy.companyId
+                vacancy.companyId,
+                vacancy.isClosed
             )
 
             // Update the vacancy in the database
